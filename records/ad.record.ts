@@ -18,19 +18,19 @@ export class AdRecord implements AdEntity {
     constructor(obj: NewAdEntity) {
         const {name, description, id, url, lat, lon, price} = obj;
 
-        if (!obj.name || obj.name.length > 100) {
+        if (!name || name.length > 100) {
             throw new ValidationError('Nazwa ogłoszenia nie może byc pusta, ani przekraczać 100 znaków.');
         }
-        if (obj.description.length > 1000) {
+        if (description.length > 1000) {
             throw new ValidationError('Treść ogłoszenia nie może przekraczać 1000 znaków.');
         }
-        if (obj.price < 0 || obj.price > 999999) {
+        if (price < 0 || price > 999999) {
             throw new ValidationError('Cena nie może być mniejsza niż 0 lub większa niz 99999.');
         }
-        if (!obj.url || obj.url.length > 100) {
+        if (!url || url.length > 100) {
             throw new ValidationError('Link ogłoszenia nie może być pusty, ani przekraczać 100 znaków.');
         }
-        if (typeof obj.lat !== "number" || typeof obj.lon !== "number") {
+        if (typeof lat !== "number" || typeof lon !== "number") {
             throw new ValidationError('Nie można zlokalizować ogłoszenia.');
         }
 
