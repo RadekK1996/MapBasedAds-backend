@@ -27,7 +27,42 @@ test('Validates invalid price', () => {
     expect(() => new AdRecord({
         ...defaultObj,
         price: -3
-    })).toThrow('Cena nie może być mniejsza niż 0 lub większa niz 99999.')
-
+    })).toThrow('Cena nie może być mniejsza niż 0 lub większa niz 99999.');
 
 });
+
+test('Validates invalid name', () => {
+    expect(() => new AdRecord({
+        ...defaultObj,
+        name: ''
+    })).toThrow('Nazwa ogłoszenia nie może byc pusta, ani przekraczać 100 znaków.');
+});
+
+test('Validates invalid description', () => {
+    expect(() => new AdRecord({
+        ...defaultObj,
+        description: 'a'.repeat(1001)
+    })).toThrow('Treść ogłoszenia nie może przekraczać 1000 znaków.');
+});
+
+test('Validates invalid url', () => {
+    expect(() => new AdRecord({
+        ...defaultObj,
+        url: 'a'.repeat(1001)
+    })).toThrow('Link ogłoszenia nie może być pusty, ani przekraczać 100 znaków.');
+
+    expect(() => new AdRecord({
+        ...defaultObj,
+        url: ''
+    })).toThrow('Link ogłoszenia nie może być pusty, ani przekraczać 100 znaków.');
+});
+
+test('Validates invalid lat/lon', () => {
+    expect(() => new AdRecord({ ...defaultObj, lat: 'a' as any , lon: 9 })).toThrow(
+        'Nie można zlokalizować ogłoszenia.',
+    );
+    expect(() => new AdRecord({ ...defaultObj, lat: 9, lon: 'a' as any  })).toThrow(
+        'Nie można zlokalizować ogłoszenia.',
+    );
+});
+
