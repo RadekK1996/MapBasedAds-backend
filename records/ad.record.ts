@@ -41,6 +41,8 @@ export class AdRecord implements AdEntity{
         this.price = obj.price;
 
 
+
+
     }
 
     static async getOne(id: string): Promise<AdRecord | null> {
