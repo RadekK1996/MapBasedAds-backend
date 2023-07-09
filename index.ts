@@ -1,4 +1,4 @@
-import express, {json} from 'express';
+import express, {json, Router} from 'express';
 import cors from 'cors';
 import 'express-async-errors';
 import {handleError} from "./utils/errors";
@@ -12,17 +12,16 @@ app.use(cors({
     origin: 'http://localhost:3000'
 }));
 app.use(json());
-
-
 app.use(rateLimit({
     windowMs: 5 * 60 * 1000, //15 minutes
     max: 100, // Limit each IP to 100 request per `window` (here, per 15minutes)
 }));
 
+const router = Router();
 
+router.use('/ad', adRouter);
 
-
-app.use('/ad', adRouter);
+app.use('/api', router);
 
 app.use(handleError);
 
