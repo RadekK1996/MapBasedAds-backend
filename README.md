@@ -7,6 +7,8 @@ Aplikacja jest interaktywną tablicą ogłoszeń. Każde ogłoszenie jest umiesz
 
 Dla użytkowników, jest to nie tylko mapka, ale także przestrzeń do dodawania własnych ogłoszeń. Aplikacja stara się stworzyć łatwy w obsłudze, intuicyjny interfejs, który pozwoli użytkownikom szybko przeglądać i dodawać ogłoszenia.
 
+![MapBasedAds](https://imgur.com/Vc0cX0N.png) LINK do wszystkich screenów ----> (https://imgur.com/gallery/6qP5nsY)
+
 ### Uruchomienie: 
 1. Sklonuj repozytorium na swój komputer.
 2. Zainstaluj zależności: npm install.
